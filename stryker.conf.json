@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "_comment": "This config was generated using 'stryker init'. Please see the guide for more information: https://stryker-mutator.io/docs/stryker-js/guides/react",
+  "tempDirName": "stryker-tmp",
+  "mutate": ["src/**/*.{j,t}s?(x)", "!src/**/*.test.tsx", "!src/setupTests.ts"],
+  "ignorePatterns": [
+    "node_modules",
+    "build",
+    "coverage",
+    ".git",
+    "/reports",
+    "*.tsbuildinfo",
+    "/stryker.log",
+    ".stryker-tmp"
+  ],
+  "testRunner": "vitest",
+  "vitest": {
+    "configFile": "./vite.config.ts"
+  },
+  "reporters": ["progress", "clear-text", "html"],
+  "symlinkNodeModules": true,
+  "coverageAnalysis": "off",
+  "tsconfigFile": "tsconfig.json",
+  "dryRunTimeoutMinutes": 20,
+  "timeoutMS": 60000,
+  "timeoutFactor": 4
+}
