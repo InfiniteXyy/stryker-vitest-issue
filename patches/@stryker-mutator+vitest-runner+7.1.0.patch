@@ -1,0 +1,14 @@
+diff --git a/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js b/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js
+index 0812a7e..dc40ece 100644
+--- a/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js
++++ b/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js
+@@ -21,7 +21,8 @@ export class VitestTestRunner {
+             config: (_a = this.options.vitest) === null || _a === void 0 ? void 0 : _a.configFile,
+             threads: true,
+             coverage: { enabled: false },
+-            singleThread: true,
++            singleThread: false,
++            maxConcurrency: 1,
+             watch: false,
+             dir: this.options.vitest.dir,
+             bail: this.options.disableBail ? 0 : 1,
