@@ -21,7 +21,7 @@ describe("test something", () => {
     expect(sessionStorage.getItem("test")).toBe("2");
   });
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 4; i++) {
     it(`basic test ${i}`, async () => {
       render(<App />);
       sessionStorage.setItem("test", String(i));

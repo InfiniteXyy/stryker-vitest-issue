@@ -23,5 +23,6 @@
   "tsconfigFile": "tsconfig.json",
   "dryRunTimeoutMinutes": 20,
   "timeoutMS": 60000,
-  "timeoutFactor": 4
+  "timeoutFactor": 4,
+  "cleanTempDir": "always"
 }
