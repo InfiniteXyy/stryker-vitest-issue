@@ -1,5 +1,5 @@
 diff --git a/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js b/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js
-index 0812a7e..dc40ece 100644
+index 0812a7e..7124549 100644
 --- a/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js
 +++ b/node_modules/@stryker-mutator/vitest-runner/dist/src/vitest-test-runner.js
 @@ -21,7 +21,8 @@ export class VitestTestRunner {
@@ -12,3 +12,18 @@ index 0812a7e..dc40ece 100644
              watch: false,
              dir: this.options.vitest.dir,
              bail: this.options.disableBail ? 0 : 1,
+@@ -131,9 +132,13 @@ export class VitestTestRunner {
+     }
+     async readMutantCoverage() {
+         // Read coverage from all projects
+-        const coverages = [...new Map(this.ctx.state.getFiles().map((file) => [file.projectName, file])).entries()]
++        const coverages = [
++            ...new Map(this.ctx.state.getFiles().map((file) => [`${file.projectName}-${file.name}`, file])).entries(),
++          ]
+             .map(([, file]) => file.meta.mutantCoverage)
+             .filter(notEmpty);
++
++        
+         if (coverages.length > 1) {
+             return coverages.reduce((acc, projectCoverage) => {
+                 // perTest contains the coverage per test id
